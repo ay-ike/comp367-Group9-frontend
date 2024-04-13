@@ -11,9 +11,9 @@ pipeline {
 
     environment {     
         IMAGE_NAME = "amonte13/eshop:front1-dev"
-        // IMAGE_NAME_2 = "amonte13/eshop:front2-dev"
+        IMAGE_NAME_2 = "amonte13/eshop:front2-dev"
         IMAGE_NAME_VERSION = "amonte13/eshop:front1-dev-${BUILD_ID}"
-        // IMAGE_NAME_VERSION_2 = "amonte13/eshop:front2-dev-${BUILD_ID}"                
+        IMAGE_NAME_VERSION_2 = "amonte13/eshop:front2-dev-${BUILD_ID}"                
     }
 
     stages {
