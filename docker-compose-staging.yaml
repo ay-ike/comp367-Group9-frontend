@@ -3,7 +3,7 @@ version: "3"
 services:
   frontend-staging:
     container_name: frontend-staging
-    image: sorada1111/eshop:front1-staging
+    image: amonte13/eshop:front1-staging
     environment:
       CLIENT_URL: http://backend-staging:3200
     ports:
@@ -11,7 +11,7 @@ services:
 
   frontend-shop-staging:
     container_name: frontend-shop-staging
-    image: sorada1111/eshop:front2-staging
+    image: amonte13/eshop:front2-staging
     environment:
       CLIENT_URL: http://backend-staging:3200
     ports:

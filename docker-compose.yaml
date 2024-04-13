@@ -3,7 +3,7 @@ version: "3"
 services:
   frontend-dev:
     container_name: frontend-dev
-    image: sorada1111/eshop:front1-dev
+    image: amonte13/eshop:front1-dev
     environment:
       CLIENT_URL: http://backend-dev:3000
     ports:
@@ -11,7 +11,7 @@ services:
 
   frontend-shop-dev:
     container_name: frontend-shop-dev
-    image: sorada1111/eshop:front2-dev
+    image: amonte13/eshop:front2-dev
     environment:
       CLIENT_URL: http://backend-dev:3000
     ports:

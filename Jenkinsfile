@@ -10,17 +10,17 @@ pipeline {
     }
 
     environment {     
-        IMAGE_NAME = "sorada1111/eshop:front1-dev"
-        IMAGE_NAME_2 = "sorada1111/eshop:front2-dev"
-        IMAGE_NAME_VERSION = "sorada1111/eshop:front1-dev-${BUILD_ID}"
-        IMAGE_NAME_VERSION_2 = "sorada1111/eshop:front2-dev-${BUILD_ID}"                
+        IMAGE_NAME = "amonte13/eshop:front1-dev"
+        // IMAGE_NAME_2 = "amonte13/eshop:front2-dev"
+        IMAGE_NAME_VERSION = "amonte13/eshop:front1-dev-${BUILD_ID}"
+        // IMAGE_NAME_VERSION_2 = "amonte13/eshop:front2-dev-${BUILD_ID}"                
     }
 
     stages {
         stage('Checkout code') {
             steps {
                 
-                git branch: 'main', url: 'https://github.com/soradaprathan/comp367-Group9-frontend.git'
+                git branch: 'main', url: 'https://github.com/ay-ike/comp367-Group9-frontend'
             }
         }
 
@@ -108,12 +108,12 @@ pipeline {
          stage('Deployment QAT') {
              steps {
                  script {
-                     bat "docker tag sorada1111/eshop:front1-dev sorada1111/eshop:front1-qat"
-                     bat "docker push sorada1111/eshop:front1-qat"      
-                     bat "docker pull sorada1111/eshop:front1-qat"  
-                     bat "docker tag sorada1111/eshop:front2-dev sorada1111/eshop:front2-qat"
-                     bat "docker push sorada1111/eshop:front2-qat"      
-                     bat "docker pull sorada1111/eshop:front2-qat"    
+                     bat "docker tag amonte13/eshop:front1-dev amonte13/eshop:front1-qat"
+                     bat "docker push amonte13/eshop:front1-qat"      
+                     bat "docker pull amonte13/eshop:front1-qat"  
+                     bat "docker tag amonte13/eshop:front2-dev amonte13/eshop:front2-qat"
+                     bat "docker push amonte13/eshop:front2-qat"      
+                     bat "docker pull amonte13/eshop:front2-qat"    
                      bat "docker compose -f docker-compose-qat.yaml down"
                      bat "docker compose -f docker-compose-qat.yaml up -d --build"      
                  }       
@@ -124,12 +124,12 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker tag sorada1111/eshop:front1-dev sorada1111/eshop:front1-staging"
-                    bat "docker push sorada1111/eshop:front1-staging"      
-                    bat "docker pull sorada1111/eshop:front1-staging"  
-                    bat "docker tag sorada1111/eshop:front2-dev sorada1111/eshop:front2-staging"
-                    bat "docker push sorada1111/eshop:front2-staging"      
-                    bat "docker pull sorada1111/eshop:front2-staging"     
+                    bat "docker tag amonte13/eshop:front1-dev amonte13/eshop:front1-staging"
+                    bat "docker push amonte13/eshop:front1-staging"      
+                    bat "docker pull amonte13/eshop:front1-staging"  
+                    bat "docker tag amonte13/eshop:front2-dev amonte13/eshop:front2-staging"
+                    bat "docker push amonte13/eshop:front2-staging"      
+                    bat "docker pull amonte13/eshop:front2-staging"     
                     bat "docker compose -f docker-compose-staging.yaml down"
                     bat "docker compose -f docker-compose-staging.yaml up -d --build"      
                 }       
@@ -141,12 +141,12 @@ pipeline {
             steps {
                 script {
 
-                    bat "docker tag sorada1111/eshop:front1-dev sorada1111/eshop:front1-prod"
-                    bat "docker push sorada1111/eshop:front1-prod"      
-                    bat "docker pull sorada1111/eshop:front1-prod"  
-                    bat "docker tag sorada1111/eshop:front2-dev sorada1111/eshop:front2-prod"
-                    bat "docker push sorada1111/eshop:front2-prod"      
-                    bat "docker pull sorada1111/eshop:front2-prod"   
+                    bat "docker tag amonte13/eshop:front1-dev amonte13/eshop:front1-prod"
+                    bat "docker push amonte13/eshop:front1-prod"      
+                    bat "docker pull amonte13/eshop:front1-prod"  
+                    bat "docker tag amonte13/eshop:front2-dev amonte13/eshop:front2-prod"
+                    bat "docker push amonte13/eshop:front2-prod"      
+                    bat "docker pull amonte13/eshop:front2-prod"   
                     bat "docker compose -f docker-compose-prod.yaml down"
                     bat "docker compose -f docker-compose-prod.yaml up -d --build"      
                 }       
